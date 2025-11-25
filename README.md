@@ -1,8 +1,8 @@
 # State-wise Trends in Female Labour Force Participation in India (2017–2024) 
 ## Introduction
 The participation of women in the labour market is a key indicator of economic progress and social inclusiveness. The rate of female participation in the labour market is increasing across the world, however India still lags behind even though improvements in female literacy.This persistent gap between education and employment reflects structural, cultural, and economic barriers that constrain women’s participation in paid work. This gap between  education and employment reveals the complex mix of social, structural and economic factors that act as boulders in women’s participation in the workforce. 
-The Periodic Labour Force Survey (PLFS) was initiated by the Ministry of Statistics and Programme Implementation (MoSPI) in 2017-18 providing an annual measure of labour market outcomes. 
-This study used data from 2017-18 till 2023-24 to analyse state-wise trends in the Female Labour Force Participation (FPLF) among women of working age (15-59 years) in India. It further attempts to provide a more comprehensive picture of the state of women’s participation in the paid labour market by using associated indicators like Female Worker Population Ratio (FWPR). Further, it examines the participation of literate females to understand if education translates to higher involvement in the workforce.
+**The Periodic Labour Force Survey (PLFS)** was initiated by the _Ministry of Statistics and Programme Implementation (MoSPI)_ in 2017-18 providing an annual measure of labour market outcomes. 
+This study used data from 2017-18 till 2023-24 to analyse state-wise trends in the Female Labour Force Participation (FPLF) among women of working age (15-59 years) in India. It further attempts to provide a more comprehensive picture of the state of women’s participation in the paid labour market by using associated indicators like **Female Worker Population Ratio (FWPR)**. Further, it examines the participation of literate females to understand if education translates to higher involvement in the workforce.
 ## Data and Methodology 
 For the purpose of this study, unit level microdata from Periodic Labour Force Survey (PLFS) was used for seven consecutive survey rounds starting from 2017-18 till 2023-24. PLFS remains the primary source of data when it comes to labour markets released by the Ministry of Statistics and Programme Implementation (MoSPI). The data extracted was used to analyse state wise trends in Female Labour Force Participation across years. 
 Selected Python code snippets are provided in Appendix A for transparency, while the complete codebase and data processing pipeline are available in the accompanying GitHub repository.
@@ -12,16 +12,18 @@ The datasets were imported in .dta (STATA) format to ensure it’s functionality
 ### 2.2) Sample and Population Scope
     For the purpose of this study only females aged 15-59 years are included which represent the working age female population in India. Males and females not a part of the working age group were excluded from this study. This age group (15-59 years) is in line with the international labour statistics conventions.
 This analysis covers 35 States and Union Territories, after making the following adjustments:
-Jammu & Kashmir and Ladakh : Jammu & Kashmir (code 1) was merged with Ladakh (code 37, introduced in 2021-22) to maintain consistency across all years.
-Dadra & Nagar Haveli and Daman & Diu: Both we combined for all years under code 25.
+**Jammu & Kashmir and Ladakh** : Jammu & Kashmir (code 1) was merged with Ladakh (code 37, introduced in 2021-22) to maintain consistency across all years.
+**Dadra & Nagar Haveli and Daman & Diu:** Both were combined for all years under code 25.
+
 ### 2.3) Employment Classification
 For this analysis  Employment Status was determined using Current Weekly Status (CWS) of each individual. CWS is based on the activity status based on the last 7 days preceding the survey. CWS is preferred in this analysis because it allows consistent comparison across years and reflects short-term employment dynamics.
 CWS codes were grouped as follows:
-Employed : It included all those individuals with CWS codes 11-72 (worked for at least one hour on any day during the reference week.).
-Unemployed: It included all those individuals with CWS codes 81-82 (Did not work for at least one hour on any day during the reference week but actively seeking or available for work).
-Out of Labour Force: It included all those individuals with CWS codes 91-98 (Not working and not looking for work).
-Literate Females: They were defined as those with General Education Level codes between 2-13.
-Illiterate Females: They were defined as those with General Education Level 1
+**Employed** : It included all those individuals with CWS codes 11-72 (worked for at least one hour on any day during the reference week.).
+**Unemployed**: It included all those individuals with CWS codes 81-82 (Did not work for at least one hour on any day during the reference week but actively seeking or available for work).
+**Out of Labour Force**: It included all those individuals with CWS codes 91-98 (Not working and not looking for work).
+**Literate Females**: They were defined as those with General Education Level codes between 2-13.
+**Illiterate Females**: They were defined as those with General Education Level 1
+
 ### 2.4) Data Processing and merging
 Data for each survey year was cleaned individually and then merged row-wise using the pandas.concat() function in python. The column names were converted into meaningful labels (eg: state_per_rv to State/UT Code, etc.). Further, all the data sets were filtered to keep only females (Sex = 2) within the age group 15-59 years. 
 The final columns kept for the study were: 'Sector', 'State/UT Code', 'Sex', 'Age', 'Marital Status', 'General Edu Level', 'Technical Edu Level', 'Current Weekly Status', 'Industry Code (CWS)', 'Occupation Code (CWS)', 'Sub-sample wise Multiplier' and 'Year'.
@@ -34,11 +36,13 @@ State-wise and national level estimates were calculated as per the sampling weig
 
 ### 2.6) Indicators Computed
 The weighted data was used to derive following indicators :
-FLFP : (Weighted number of women in labour force {employed + unemployed) / Weighted total women aged 15-59 years) * 100
-FWPR : (Weighted number of employed women / weighted total women aged 15-59 years) * 100
-FUR : ( Weighted number of unemployed women / weighted total women aged 15-59 years) * 100
+**FLFP** : (Weighted number of women in labour force {employed + unemployed) / Weighted total women aged 15-59 years) * 100
+**FWPR** : (Weighted number of employed women / weighted total women aged 15-59 years) * 100
+**FUR** : ( Weighted number of unemployed women / weighted total women aged 15-59 years) * 100
+
 ###  2.7) Analytical Tools and Visualisation 
 Python was used for all the computations and visualisations. Python libraries such as pandas, numpy, matplotlib and seaborn were used in the Jupyter Notebook. 
+
 ### 2.8) Limitations 
 Although PLFS covers a rich micro data there a few things that must be noted:
 This study only used Current Weekly Status (CWS) which measures only short term labour engagement.
@@ -50,6 +54,7 @@ This study has not analysed the quality of employment undertaken by individuals,
 
 ## Results and Analysis
 This study analyzes state level as well as national level trends of Female Labour Force Participation over the years. Moreover, an attempt has been made to analyse the Female Working Population trends and the impact of education on FLFP. Each of these analyses are discussed below.
+
 ### 3.1)  National Trends
 
 <img width="2400" height="1500" alt="fplf_india" src="https://github.com/user-attachments/assets/c5b382ad-64eb-46cf-9d4b-c2a4ba1dc625" />
